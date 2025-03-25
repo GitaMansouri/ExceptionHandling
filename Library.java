@@ -1,3 +1,7 @@
+import exceptions.EmptyLibraryException;
+import exceptions.InvalidBookException;
+import exceptions.BookNotFoundException;
+
 import java.util.ArrayList;
 
 public class Library {
@@ -42,7 +46,11 @@ public Library(){
     public void returnBook(String title){
         Book foundBook = findBook(title);
         if (foundBook == null) {
-            throw new BookNotFoundException("Book with title" + title + "not found. Cannot return");
+            try {
+                throw new BookNotFoundException("Book with title" + title + "not found. Cannot return");
+            } catch (BookNotFoundException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         System.out.println("Successfully returned: " + foundBook.getTitle() + foundBook.getPageCount());
