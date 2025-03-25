@@ -1,3 +1,5 @@
+import java.io.InputStream;
+
 public class Book {
     private String title;
     private int pageCount;
@@ -23,6 +25,10 @@ public class Book {
 
     public int getPageCount() {
         return pageCount;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     @Override
