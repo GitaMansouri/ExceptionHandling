@@ -8,7 +8,7 @@ public class Library {
 private ArrayList<Book> books;
 
 public Library(){
-    Book book = new Book("title" , 203);
+    Book book = new Book("Calclus" , 203);
 }
 
     public ArrayList<Book> getBooks() {
@@ -40,7 +40,7 @@ public Library(){
             throw new BookNotFoundException("Book with title" + title + "not found.");
         }
 
-        System.out.println("Successfully borrowed: " + foundBook.getTitle() + foundBook.getPageCount());
+        System.out.println("Successfully borrowed: " + foundBook.toString());
     }
 
     public void returnBook(String title){
@@ -53,7 +53,7 @@ public Library(){
             }
         }
 
-        System.out.println("Successfully returned: " + foundBook.getTitle() + foundBook.getPageCount());
+        System.out.println("Successfully returned: " + foundBook.toString());
     }
 
     public void listBooks() throws EmptyLibraryException{
@@ -62,7 +62,7 @@ public Library(){
         }
         System.out.println("Books in the library:");
         for (Book book : books) {
-            System.out.println(book.getTitle());
+            System.out.println(book.toString());
         }
     }
 }
